@@ -2,7 +2,7 @@ import re, copy
 from field import Field
 
 def generateEasy(models):
-	output = open("result/mars.txt","w+")
+	output = open("result/easy.txt","w+")
 
 	for model in models:
 		model_name = model

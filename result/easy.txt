@@ -1,0 +1,47 @@
+
+MODEL: Purchase_Order_Line
+
+_____________________LIST VIEW_____________________
+
+PurchaseOrderLine_id
+PurchaseOrder_id
+Product_id
+FOBUnitPrice
+CIFUnitPrice
+Quantity
+TotalNetWeight
+TotalShippingWeight
+TotalPrice
+EstSalePrice
+EstSaleTotal
+
+_______________________ CSV _______________________
+
+PurchaseOrderLine_id,PurchaseOrder_id,Product_id,FOBUnitPrice,CIFUnitPrice,
+Quantity,TotalNetWeight,TotalShippingWeight,TotalPrice,EstSalePrice,EstSaleTotal
+
+
+__________________ CSV with Quote __________________
+
+['PurchaseOrderLine_id','PurchaseOrder_id','Product_id','FOBUnitPrice','CIFUnitPrice',
+'Quantity','TotalNetWeight','TotalShippingWeight','TotalPrice','EstSalePrice','EstSaleTotal'
+]
+
+____________________ OnChange _____________________
+
+this.props.fields.PurchaseOrderLine_id.onChange(PurchaseOrderLine_id);
+this.props.fields.PurchaseOrder_id.onChange(PurchaseOrder_id);
+this.props.fields.Product_id.onChange(Product_id);
+this.props.fields.FOBUnitPrice.onChange(FOBUnitPrice);
+this.props.fields.CIFUnitPrice.onChange(CIFUnitPrice);
+this.props.fields.Quantity.onChange(Quantity);
+this.props.fields.TotalNetWeight.onChange(TotalNetWeight);
+this.props.fields.TotalShippingWeight.onChange(TotalShippingWeight);
+this.props.fields.TotalPrice.onChange(TotalPrice);
+this.props.fields.EstSalePrice.onChange(EstSalePrice);
+this.props.fields.EstSaleTotal.onChange(EstSaleTotal);
+
+__________________ End of Purchase_Order_Line__________________
+
+
+
