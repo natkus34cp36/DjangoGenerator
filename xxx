@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS remotetest2.Purchase_Order_Line (
+  PurchaseOrderLine_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  PurchaseOrder_id INT UNSIGNED NOT NULL,
+  Product_id INT UNSIGNED NOT NULL COMMENT 'For accessing \n1. Name \n2. Description\n3. Unit of Measure\n4. RefNum',
+  FOBUnitPrice FLOAT NOT NULL DEFAULT 0 COMMENT 'Vendor’s price. We get it from the purchase order history.',
+  CIFUnitPrice FLOAT NULL DEFAULT 0,
+  Quantity INT NOT NULL DEFAULT 0 COMMENT 'if minus => return the goods',
+  TotalNetWeight FLOAT NOT NULL DEFAULT 0,
+  TotalShippingWeight FLOAT NOT NULL DEFAULT 0,
+  TotalPrice FLOAT NOT NULL DEFAULT 0 COMMENT '= UnitPrice * Quantity',
+  EstSalePrice FLOAT NOT NULL DEFAULT 0 COMMENT '= UnitPrice * 103%\n103% is default',
+  EstSaleTotal FLOAT NOT NULL DEFAULT 0,
+  PRIMARY KEY (PurchaseOrderLine_id),
+  INDEX Product_id_idx (Product_id ASC),
+  CONSTRAINT FK_POL_PO_PO_id
+    FOREIGN KEY (PurchaseOrder_id)
+    REFERENCES remotetest2.Purchase_Order (PurchaseOrder_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT FK_POL_Product_Product_id
+    FOREIGN KEY (Product_id)
+    REFERENCES remotetest2.Product (Product_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
